@@ -1,0 +1,12 @@
+{
+  "name": "practicapugmongonode",
+  "version": "1.0.0",
+  "description": "api_de_peliculas_con_Mongo_Node_y_Pug",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Ronald Pineda",
+  "license": "ISC"
+}
