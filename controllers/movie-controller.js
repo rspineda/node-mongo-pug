@@ -8,6 +8,13 @@ ControllerMovie.error404 = (req, res, next)=>{
 };
 
 ControllerMovie.getAll = (req, res, next)=>{
+    movieModel.getAll((docs)=>{
+        let locals = {
+            title: "Lista de Peliculas",
+            data: docs
+        }
+        res.render('index', locals);
+    });
 
 };
 
