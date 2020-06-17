@@ -12,8 +12,11 @@ Movie.getAll = (cb)=>{  //le llega como argumento el callback que le paso desde 
     });
 };
 
-Movie.save = ()=>{
-
+Movie.save = (doc,cb)=>{
+    movieModel.create(doc, (err)=>{
+        if(err) throw err;
+        cb(doc);
+    });
 };
 
 

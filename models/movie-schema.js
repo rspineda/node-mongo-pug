@@ -21,7 +21,7 @@ Movie = mongoose.model ("Movie", movieSchema);
 
 //conecto con mongo 
 const connect = () => {
-    return  mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true});
+    return  mongoose.connect(`mongodb://${config.mongo.host}/${config.mongo.db}`, {useNewUrlParser: true, useUnifiedTopology: true});
  }
  
  connect()
