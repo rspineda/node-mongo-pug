@@ -13,15 +13,19 @@ Movie.getAll = (cb)=>{  //le llega como argumento el callback que le paso desde 
 };
 
 Movie.save = (doc,cb)=>{
-    movieModel.create(doc, (err)=>{
+    movieModel.create(doc, (err)=>{  //con create creo un documento como instancia del modelo "Movie" que esta en el esquema. 
         if(err) throw err;
         cb(doc);
     });
 };
 
 
-Movie.update = ()=>{
-
+Movie.update = (movie_id, cb)=>{
+    
+    movieModel.findOne({'movie_id':`${movie_id}`}).exec((err, doc)=>{
+        if(err) throw err
+        cb(doc);
+    });
 };
 
 Movie.saveUpdate = ()=>{

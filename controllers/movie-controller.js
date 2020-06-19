@@ -41,7 +41,15 @@ ControllerMovie.saveAdd = (req, res, next)=>{
 };
 
 ControllerMovie.update = (req, res, next)=>{
-
+    let movie_id = req.params.movie_id;
+    movieModel.update(movie_id, (doc)=>{
+        let locals = {
+            title : "Editar pelicula",
+            data : doc
+        }
+        console.log(doc);
+        res.render("edit", locals);
+    })
 };
 
 ControllerMovie.saveUpdate = (req, res, next)=>{
