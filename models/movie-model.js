@@ -28,8 +28,13 @@ Movie.update = (movie_id, cb)=>{
     });
 };
 
-Movie.saveUpdate = ()=>{
-
+Movie.saveUpdate = (oldMovie, updatedMovie, cb )=>{
+    //console.log("la peli antigua:",oldMovie);
+    //console.log("la peli nueva",updatedMovie);
+    movieModel.findOneAndReplace(oldMovie, updatedMovie, null, (err, docs)=>{  //Este tiene 4 parametros, el 3ero de null son las opciones y si no lo tengo me borra todo el documento.
+        if(err) throw err;
+        cb(docs)
+    })
 };
 
 Movie.delete = ()=>{

@@ -53,7 +53,20 @@ ControllerMovie.update = (req, res, next)=>{
 };
 
 ControllerMovie.saveUpdate = (req, res, next)=>{
-
+    let oldMovie = {
+        movie_id : req.body.movie_id
+    };
+    let updatedMovie = {
+        movie_id : req.body.movie_id,
+        title : req.body.title,
+        release_year : req.body.release_year,
+        rating : req.body.rating,
+        image: req.body.image 
+    };
+    movieModel.saveUpdate(oldMovie, updatedMovie, (docs)=>{
+        console.log(docs)
+        res.redirect('/');
+    });
 };
 
 ControllerMovie.delete = (req, res, next)=>{
