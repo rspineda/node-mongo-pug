@@ -47,7 +47,7 @@ ControllerMovie.update = (req, res, next)=>{
             title : "Editar pelicula",
             data : doc
         }
-        console.log(doc);
+        //console.log(doc);
         res.render("edit", locals);
     })
 };
@@ -70,7 +70,12 @@ ControllerMovie.saveUpdate = (req, res, next)=>{
 };
 
 ControllerMovie.delete = (req, res, next)=>{
-
+    let movie = {
+        movie_id : req.params.movie_id
+    }
+    movieModel.delete(movie, ()=>{
+        res.redirect('/');
+    })
 };
 
 module.exports = ControllerMovie;

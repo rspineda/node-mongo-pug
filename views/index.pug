@@ -29,7 +29,7 @@ block content
                                 input(type="submit", value="Editar")
                         td 
                             form(method="post", action=`/delete/${movie.movie_id}`)
-                                input(type="button", value="delete", onclick="eliminar(this)")
+                                input(type="button", value="Borrar", onclick="eliminar(this)")
                                 input(type="hidden", name="_method", value="DELETE")
         -else
             div.errorCaja

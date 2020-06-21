@@ -37,8 +37,13 @@ Movie.saveUpdate = (oldMovie, updatedMovie, cb )=>{
     })
 };
 
-Movie.delete = ()=>{
-
+Movie.delete = (movie, cb)=>{
+    console.log("la peli que se va a borrar es :", movie);
+    movieModel.deleteOne(movie, (err, result)=>{
+        if(err) throw err
+        console.log(result);
+        cb();
+    });
 };
 
 
